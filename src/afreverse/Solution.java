@@ -13,7 +13,7 @@ public class Solution {
        // This is the tricky part:
        // In java the value after this might overflow for an int type.
        // so convert everything into long type and turn it back later.
-       // However I'm not sure how this would work out in python.
+       // However I'm not sure how this would play out in python.
        if (remain > Integer.MAX_VALUE){
            return 0;
        }else{
