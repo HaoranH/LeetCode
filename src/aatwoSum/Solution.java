@@ -1,4 +1,4 @@
-package aaTwoSum;
+package aatwoSum;
 import java.util.HashMap;
 
 public class Solution {

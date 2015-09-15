@@ -1,4 +1,4 @@
-package longestSubstringWithoutRepeatingCharacters;
+package aclongestSubstringWithoutRepeatingCharacters;
 import java.util.*;
 
 public class Solution {
