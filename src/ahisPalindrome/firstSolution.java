@@ -12,7 +12,7 @@ public class firstSolution {
 	 *  java will recognize it as Octal format
 	 *  and automatically convert it to 8.
 	 *  This problem doesn't exist in Leetcode, however, for a probable
-	 *  reason that the web page takes the input as String and   
+	 *  reason that the web page takes the input as String (duh) and   
 	 *  converts the string to integer somewhere.
 	 *  
 	 */
@@ -23,13 +23,13 @@ public class firstSolution {
     	}
         int digit = 0; // This is the actual digit - 1, for the sake of computing.
         int tmp = x;
-        while(tmp/10 >0 ) {
+        while(tmp/10 >9 ) {
             tmp /= 10;
             digit ++;
         }
-        if(tmp == 10){  // 10 seems to be a special case here.
-        	return false;
-        }
+//        if(tmp == 10){  // 10 seems to be a special case here.
+//        	return false;
+//        }
         return checkPalindrome(x,digit);
     }
     
@@ -50,5 +50,10 @@ public class firstSolution {
         }else{
             return false;
         }
+    }
+    
+    static public void main(String[] args){
+    	firstSolution test = new firstSolution();
+    	System.out.println(test.isPalindrome(10));
     }
 }
