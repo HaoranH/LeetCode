@@ -16,8 +16,8 @@ public class Solution {
 		 *  
 		 *  Above specification only works for this question under current condition only. 
 		 * */
-		str = str.trim();
-        int length = str.length();
+		str = str.trim(); // get rid of whitespace
+        int length = str.length(); 
         if(length == 0){
             return 0;
         }
@@ -30,7 +30,7 @@ public class Solution {
 		}else if(firChar == '+'){
 			i++;
 		}
-		long retVal = 0;
+		long retVal = 0; // in case of overflow, first define the type of return value as long
 		for (int n = i; n < length; n++){
 			if(Character.isDigit(str.charAt(n))){
 				retVal = retVal*10 + Character.getNumericValue(str.charAt(n));
