@@ -1,7 +1,7 @@
 package ahisPalindrome;
 
 /*
- *  In my opinion this is a better solution, in that it doesn't need consider negative number.
+ *  IMO this is a better solution, in that it doesn't need consider negative number.
  *  Convert the integer to string and compare string at both ends. Voilà.
  * */
 public class strSolution {
