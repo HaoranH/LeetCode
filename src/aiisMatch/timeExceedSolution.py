@@ -1,4 +1,4 @@
-class Solution(object):
+class timeExceedSolution(object):
     # This solution will not work in that the time exceeds when
     # running case:
     # s = "aaaaaaaaaaaaab"
