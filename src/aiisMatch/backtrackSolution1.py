@@ -1,9 +1,7 @@
 class Solution:
     # @return a boolean
     # This works, but time complexity is high
-    # This solution takes the advantage of python string slicing
-    # which makes extracting the character from the end of a string
-    # fairly easy.
+    # This solution takes the advantage of python string slicing.
     def isMatch(self, s, p):
         if p[-1] == '*':
             '''
