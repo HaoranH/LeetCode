@@ -1,19 +1,27 @@
-class Solution:
-   def isMatch(self,s,p):
-      ref = [[False]*(len(s)+1) for _ in xrange(len(p)+1)]
-      ref[0][0] = True
-      
-      for i in xrange(2,len(p)+1):
-          ref[i][0] = ref[i-2][0] and p[i-1] == '*'
-    
-      for i in xrange(1,len(p)+1):
-          for j in xrange(1,len(s)+1):
-              if p[i-1] != '*':
-                  ref[i][j] = (s[j-1] == p[i-1] or p[i-1] == '.') and ref[i-1][j-1]
-              else:
-                  ref[i][j] == ref[i-2][j] or ref[i-1][j]
-                  if s[j-1] == p[i-2] or p[i-2] == '.':
-                        ref[i][j] |= ref[i][j-1]
-      return ref[-1][-1]
-test = Solution()
-test.isMatch("aaa","ac*ad*a")
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Sep 16 10:42:45 2015
+"""
+# This is not exactly my code, since I got confused at the overflow issue. 
+# For python, once the value of int type overflows the variable turn into long
+# type, which, IMO, deprives the necessity of the 'difficulty' and 
+# in this case, lessened the meaning of solving it in python.
+class Solution(object):
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        retVal = 0
+        if x < 0:
+            flag = -1
+            x *= -1
+        while x:
+            # Python's modulo operator (%) always
+            # return a number having the same sign as the denominator (divisor)
+            # Thus the operator before the value must be determined.
+            retVal = retVal * 10 + x % 10  
+            x = x / 10
+        if retVal > 2 ** 31 / 10:
+            return 0
+        return retVal * flag
