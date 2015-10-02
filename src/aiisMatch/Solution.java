@@ -11,8 +11,8 @@ public class Solution {
     	/*
     	 * First condition: if p is empty, s can only be empty.
     	 * */
-        if(pSt>pLen-1){  
-        	return (sSt > sLen -1);
+    	if (p.length() == 0){
+            return (s.length() == 0);
         }
         
         /*
@@ -22,10 +22,10 @@ public class Solution {
          * For both of these situations same action can be taken.
          * If the length of s is 0, it is a false; if the next char is not '*' and current char doesn't match, it's false
          * */
-        if(pSt == pLen -1 || p.charAt(pSt+1) != '*'){
-        	if(sSt == sLen || (s.charAt(sSt) != p.charAt(pSt) && p.charAt(pSt) != '.')){
-        		return false;
-        	}else return isMatch(s,sSt+1,sLen, p, pSt+1,pLen);
+    	if (p.length() == 1 || p.charAt(1) != '*'){
+            if (s.length() != 0 && (s.charAt(0) ==p.charAt(0) || p.charAt(0)=='.')){
+                return isMatch(s.substring(1),p.substring(1));
+            }else return false;
         }
         
         /*
@@ -34,13 +34,12 @@ public class Solution {
          * To prevent '*' from greedy matching all of s's substring need to be considered to match with the 
          * substring of p starting from the position after '*'.
          * */
-        else{
-        	int i = -1;
-        	while(sSt+i <= sLen-1 &&(i < 0 || p.charAt(pSt) == s.charAt(sSt+i)||p.charAt(pSt) == '.')){
-        		if (isMatch(s,sSt+i+1,sLen,p,pSt+2,pLen)) return true;
-        		i ++;
-        	}
-        	return false;
+    	else{
+            if (isMatch(s,p.substring(2))) return true;
+            if (s.length() != 0 && (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.')){
+                return isMatch(s.substring(1),p);
+            }
         }
+        return false;
     }
 }
