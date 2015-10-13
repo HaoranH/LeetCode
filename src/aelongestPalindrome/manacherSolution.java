@@ -1,7 +1,8 @@
 package aelongestPalindrome;
-//
 
-public class manacherSolution {
+//http://articles.leetcode.com/2011/11/longest-palindromic-substring-part-ii.html
+
+public class ManacherSolution {
 	public String longestPalindrome(String s){
 		int len = s.length();
 		if(len == 0||len == 1||len == 2){
